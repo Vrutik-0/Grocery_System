@@ -65,6 +65,7 @@ Follow on-screen prompts to enter your name, mobile number, navigate categories,
 - No persistent storage: All data (stock, cart) is in-memory; restarting the program resets stock and cart.
 - Multi-user / concurrency: Not supported (single-user console app).
 - Input robustness: While numeric validation exists, some edge cases may still cause unexpected behavior (e.g., using non-digit characters in some scanf calls).
+- Terminal Base(No - UI) - As it is a simple learning project.
 
 ## Suggested improvements
 
