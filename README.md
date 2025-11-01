@@ -52,7 +52,7 @@ Follow on-screen prompts to enter your name, mobile number, navigate categories,
 
 - Enter numeric values when prompted (mobile number, menu choices, quantities, payment details).
 - Mobile number validation requires exactly 10 digits.
-- Card number validation requires exactly 16 digits, CVV requires exactly 3 digits.
+- Card number validation requires exactly 16 digits with Luhn Algo for Card Number Validation, CVV requires exactly 3 digits.
 - To use the UPI option and see a QR code dialog, place a valid `qrcode.png` image file in the same directory before running. The app uses Swing `JOptionPane` to display the QR.
 
 ## Known issues and limitations
