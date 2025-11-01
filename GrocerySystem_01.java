@@ -361,6 +361,29 @@ public class GrocerySystem_01
         System.out.println(GREEN+"Cart cleared successfully."+RESET);
     }
 
+    static boolean validateCardNumber(String cardNumber) {
+        int sum = 0;
+        boolean alternate = false;
+        
+        // Loop through values starting from the rightmost digit
+        for (int i = cardNumber.length() - 1; i >= 0; i--) {
+            int digit = Character.getNumericValue(cardNumber.charAt(i));
+            
+            if (alternate) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit = (digit % 10) + 1;
+                }
+            }
+            
+            sum += digit;
+            alternate = !alternate;
+        }
+        
+        // If sum is divisible by 10, card number is valid
+        return (sum % 10 == 0);
+    }
+
     static void generateBill()
     {
         System.out.println(BOLD + "\nYour Bill:" + RESET);
@@ -421,18 +444,18 @@ public class GrocerySystem_01
             System.out.println("------------------------------------------");
             System.out.println(BOLD + "Total after discount: Rs " + UNDERLINE + total + RESET);
 
-            long cardNumber;
+            String cardNumber;
             while (true)
             {
                 System.out.print("Enter card number: ");
-                cardNumber = in.nextLong();
-                if (String.valueOf(cardNumber).length() == 16)
+                cardNumber = in.next();
+                if (cardNumber.length() == 16 && cardNumber.matches("\\d+") && validateCardNumber(cardNumber))
                 {
                     break;
                 }
                 else
                 {
-                    System.out.println(RED + "Invalid card number. Must be 16 digits." + RESET);
+                    System.out.println(RED + "Invalid card number. Must be 16 digits and pass validation check." + RESET);
                 }
             }
 
